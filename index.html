@@ -1,4 +1,46 @@
 ---
-layout: home
-author_profile: true
+layout: splash
+title: "<br>Hello, I'm Himanshu<br>"
+excerpt: "<br>Graduate student<br>Machine Learning Engineer<br>Speaker and Writer<br><br>"
+header:
+    overlay_color: "#000"
+    overlay_filter: "0.2"
+    overlay_image: /assets/images/himanshu.png
+    actions:
+        - label: "Know More"
+          url: "#about-me"
+feature_row:
+    - image_path: assets/images/interpretability.jpeg
+      alt: "Explainable AI"
+      title: "Explainable AI"
+      excerpt: "A guide on visualization and explainability of deep learning models."
+      url: "#test-link"
+      btn_label: "Read More"
+      btn_class: "btn--primary"
+    - image_path: /assets/images/hyperparameter.jpeg
+      alt: "Hyperparameter Tuning"
+      title: "Hyperparameter Tuning"
+      excerpt: "Steps on performing hyperparameter tuning in deep learning."
+      url: "#test-link"
+      btn_label: "Read More"
+      btn_class: "btn--primary"
+    - image_path: /assets/images/deployment.jpg
+      alt: "Deploying machine learning models"
+      title: "Deploying machine learning models"
+      excerpt: "A guide on serving machine learning models"
+      url: "#test-link"
+      btn_label: "Read More"
+      btn_class: "btn--primary"
 ---
+
+{% include about %}
+
+<h1 id="projects" style="text-align: center;">Projects</h1>
+<p style="text-align: center;">Browse all my projects on <a href="https://github.com/himanshurawlani/">GitHub</a>.</p>
+{% include feature_row %}
+
+<!-- {% include feature_row id="feature_row3" type="right" %}
+
+{% include feature_row id="feature_row4" type="center" %} -->
+
+{% include contact %}

@@ -1,0 +1,197 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.input-container {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+
+.icon {
+  padding: 12px;
+  min-width: 45px;
+  text-align: center;
+}
+
+/* style the container */
+.container {
+  position: relative;
+  border-radius: 5px;
+  background-color: inherit;
+  padding: 20px 0 30px 0;
+} 
+
+/* add appropriate colors to fb, twitter and google buttons */
+.fb {
+  background-color: #3B5998;
+  color: white;
+  width: 100%;
+}
+
+.twitter {
+  background-color: #55ACEE;
+  color: white;
+  width: 100%;
+}
+
+.google {
+  background-color: #dd4b39;
+  color: white;
+  width: 100%;
+}
+
+/* Two-column layout */
+.col {
+  float: left;
+  width: 50%;
+  margin: auto;
+  padding: 0 50px;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* vertical line */
+.vl {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  border: 2px solid #ddd;
+  height: 70%;
+}
+
+/* text inside the vertical line */
+.vl-innertext {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f1f1f1;
+  color: gray;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  padding: 8px 10px;
+}
+
+/* hide some text on medium and large screens */
+.hide-md-lg {
+  display: none;
+}
+
+/* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 650px) {
+  .col {
+    width: 100%;
+    margin-top: 0;
+  }
+  /* hide the vertical line */
+  .vl {
+    display: none;
+  }
+  /* show the hidden text on small screens */
+  .hide-md-lg {
+    display: block;
+    text-align: center;
+  }
+}
+
+#fs-frm input,
+#fs-frm select,
+#fs-frm textarea,
+#fs-frm fieldset,
+#fs-frm optgroup,
+#fs-frm label,
+#fs-frm #card-element:disabled {
+  font-family: inherit;
+  font-size: 100%;
+  color: inherit;
+  border: none;
+  border-radius: 0;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+#fs-frm label,
+#fs-frm legend,
+#fs-frm ::placeholder {
+  display: flex;
+  align-items: baseline;
+}
+
+/* border, padding, margin, width */
+#fs-frm input,
+#fs-frm select,
+#fs-frm textarea,
+#fs-frm #card-element {
+  border: 1px solid rgba(0,0,0,0.2);
+  padding: .75em .75rem;
+  margin-bottom: .75rem;
+}
+</style>
+
+<h1 id="contact-me" style="text-align: center;">Contact me</h1>
+<div class="container">
+  <!-- modify this form HTML and place wherever you want your form -->
+  <form id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/f/xayvpzvr" method="post">
+    <div class="row">
+      <h2 style="text-align:center">Connect with me on Social Media or Manually</h2>
+      <div class="vl">
+        <span class="vl-innertext">or</span>
+      </div>
+
+      <div class="col">
+        <p style="text-align: justify;">Thank you for going through my portfolio. If you want to have a discussion, reach out to me on social media handles below. You may also fill in the contact form and I'll get back to you.</p>
+        <a href="#" class="fb btn" style="margin: 10px 0;">
+          <i class="fa fa-facebook fa-fw"></i> Facebook
+        </a>
+        <a href="#" class="twitter btn" style="margin: 10px 0;">
+          <i class="fa fa-twitter fa-fw"></i> Twitter
+        </a>
+        <a href="#" class="google btn" style="margin: 15px 0;">
+          <i class="fa fa-google fa-fw"></i> Google+
+        </a>
+      </div>
+      <div class="col">
+        <div class="hide-md-lg">
+          <p>Or connect manually:</p>
+        </div>
+          <fieldset id="fs-frm-inputs">
+            <div class="input-container">
+              <i class="fa fa-user icon"></i>
+              <input class="input-field" type="text" name="name" id="full-name" placeholder="First and Last name" required="">
+            </div>
+            <div class="input-container">
+              <i class="fa fa-envelope icon"></i>
+              <input class="input-field" type="email" name="email" id="email-address" placeholder="Email Address" required="">
+            </div>
+            <div class="input-container">
+              <i class="fa fa-inbox icon"></i>
+              <input class="input-field" type="text" name="subject" id="subject" placeholder="Subject" required="">
+            </div>
+            <div class="input-container">
+              <i class="fa fa-commenting icon"></i>
+              <textarea class="input-field" rows="3" name="message" id="message" placeholder="Message description" required=""></textarea>
+            </div>
+            <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
+          </fieldset>
+          <div class="input-container">
+            <i class="fa fa-blank icon"></i>
+            <input style="color: gray" type="submit" value="Submit">
+          </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,15 @@
+/* ==========================================================================
+   Sections
+   ========================================================================== */
+
+.wrapper .row section {
+    background: $form-background-color;
+}
+
+.wrapper .row section::before {
+    background: $form-background-color;
+}
+
+.row section .icon, .center-line .scroll-icon {
+    background: $form-background-color;
+}
