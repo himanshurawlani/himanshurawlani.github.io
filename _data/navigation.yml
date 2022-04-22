@@ -6,10 +6,6 @@ main:
     url: /#projects
   - title: "Blog"
     url: /blog/
-  - title: Certifications
-    url: /certification/
-  - title: Volunteering
-    url: /volunteering/
   - title: Resume
     url: /resume/
   - title: Contact

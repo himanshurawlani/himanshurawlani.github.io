@@ -1,10 +1,64 @@
+<script>
+  (function() {
+	
+	var SkillsBar = function( bars ) {
+		this.bars = document.querySelectorAll( bars );
+		if( this.bars.length > 0 ) {
+			this.init();
+		}	
+	};
+	
+	SkillsBar.prototype = {
+		init: function() {
+			var self = this;
+			self.index = -1;
+			self.timer = setTimeout(function() {
+				self.action();
+			}, 500);
+			
+			
+		},
+		select: function( n ) {
+			var self = this,
+				bar = self.bars[n];
+				
+				if( bar ) {
+					var width = bar.parentNode.dataset.percent;
+				
+					bar.style.width = width;
+					bar.parentNode.classList.add( "complete" );	
+				}
+		},
+		action: function() {
+			var self = this;
+			self.index++;
+			if( self.index == self.bars.length ) {
+				clearTimeout( self.timer );
+			} else {
+				self.select( self.index );	
+			}
+			
+			setTimeout(function() {
+				self.action();
+			},500);
+		}
+	};
+	
+	window.SkillsBar = SkillsBar;
+	
+})();
+
+(function() {
+	document.addEventListener( "DOMContentLoaded", function() {
+		var skills = new SkillsBar( ".skillbar-bar" );
+	});
+})();
+</script>
+
 <style>
+/* Flex box*/
 html{
   scroll-behavior: smooth;
-}
-::selection{
-  color: #fff;
-  background: #3ea0e2;
 }
 .wrapper{
   max-width: 1080px;
@@ -19,7 +73,8 @@ html{
   background: #f2f3f3;
   left: 50%;
   top: 20px;
-  transform: translateX(-50%);
+  background-image: linear-gradient(to bottom, aquamarine, orangered);
+  background-attachment: fixed;
 }
 .wrapper .row{
   display: flex;
@@ -59,19 +114,19 @@ html{
   width: 40px;
   text-align: center;
   border-radius: 50%;
-  color: #3ea0e2;
+  color: darkslategray;
   font-size: 17px;
-  box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0,0,0,0.08), 0 3px 0 4px rgba(0,0,0,0.05);
+  background-image: linear-gradient(to bottom, aquamarine, orangered);
+  background-attachment: fixed;
 }
 .center-line .scroll-icon{
   bottom: 0px;
-  left: 50%;
+  left: -450%;
   font-size: 25px;
-  transform: translateX(-50%);
 }
 .row-1 section .icon{
   top: 15px;
-  right: -60px;
+  right: -64px;
 }
 .row-2 section .icon{
   top: 15px;
@@ -117,10 +172,162 @@ html{
     margin: 10px 0;
   }
 }
+
+/*= Skills bar */
+
+.skillbar-wrapper {
+	margin: 1.5em auto;
+	max-width: 960px;
+}
+
+.skillbar {
+	position:relative;
+	margin-bottom: 15px;
+	width: 100%;
+	height: 35px;
+	border-radius: 3px;	
+}
+
+.skillbar-title {
+	position:absolute;
+	top:0;
+	left:0;
+	font-weight: bold;
+	font-size: 17px;
+	color: #fff;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	margin: 0;
+}
+
+.skillbar-title span {
+	display: block;
+	padding: 0 20px;
+	height:35px;
+	line-height: 35px;
+	border-top-left-radius:3px;
+	border-bottom-left-radius:3px;
+  background-image: linear-gradient(to bottom, aquamarine, orangered);
+  background-attachment: fixed;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.skillbar-bar {
+	height: 35px;
+	width: 0%;
+	border-radius: 3px;
+	transition: 500ms linear;
+	transition-property: width, background-color;
+}
+
+.skill-bar-percent {
+	position: absolute;
+	right: 10px;
+	top: 0;
+	font-size: 11px;
+	height: 35px;
+	line-height: 35px;
+	color: rgba( 0, 0, 0, 0.4 );
+	transition: color 500ms ease-out;
+}
+
+.complete .skill-bar-percent {
+	color: #fff;
+}
+
+.complete.server .skill-bar-percent {
+	color: #333;
+}
+
+/* .skill-name .skillbar-title{
+  background: #00adb5;
+} */
+
+.skill-name .skillbar-bar {
+  background: darkslategray;
+}
+
+/* Gradient counter list*/
+/* List */
+gcl {
+  counter-reset: index;  
+  padding: 0;
+}
+
+/* List element */
+gcli {
+  counter-increment: index; 
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  box-sizing: border-box;
+}
+
+
+/* Element counter */
+gcli::before {
+  content: counters(index, ".", decimal-leading-zero);
+  font-size: 1.5rem;
+  text-align: right;
+  font-weight: bold;
+  min-width: 50px;
+  padding-right: 12px;
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+  align-self: flex-start;
+  background-image: linear-gradient(to bottom, aquamarine, orangered);
+  background-attachment: fixed;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* Element separation */
+gcli + gcli {
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
 </style>
 
-<body>
+<body style="justify-content: center;">
     <h1 id="about-me" style="text-align: center;">About me</h1>
+    <div class="skillbar-wrapper">
+      <gcl>
+        <gcli>Machine learning engineer with 3 years of work experience in Computer Vision and Natural Language Processing technologies. Seasoned in development and deployment of Machine learning algorithms and entire training and inference pipelines.</gcli>
+        <gcli>Published articles on machine learning model training, deployment, interpretability, and hyperparameter optimizations using Tensorflow and Keras.</gcli>
+        <gcli>Launched “School of AI” local chapter with a focus on conducting workshops on a wide range of beginner and advanced topics from machine learning and deep learning.</gcli>
+        <gcli>Delivered sessions/workshops on machine learning and deep learning topics like exploratory data analysis and neural network visualizations at community events conducted by Google Developer Groups and PyData.</gcli>  
+        <gcli>I'm particularly interested in the field of Natural Language Processing/Understanding and remain passionate about the development of real-world applications.</gcli>
+      </gcl>
+    </div>
+    <h2 style="text-align: center;">Skills</h2>
+    <div class="skillbar-wrapper">
+      <div class="skillbar clearfix skill-name" data-percent="95%">
+        <h4 class="skillbar-title"><span>Machine learning</span></h4>
+        <div class="skillbar-bar"></div>
+      </div>
+      
+      <div class="skillbar clearfix skill-name" data-percent="90%">
+        <h4 class="skillbar-title"><span>Computer vision</span></h4>
+        <div class="skillbar-bar"></div>
+      </div>
+      
+      <div class="skillbar clearfix skill-name" data-percent="85%">
+        <h4 class="skillbar-title"><span>Natural language processing</span></h4>
+        <div class="skillbar-bar"></div>        
+      </div>
+      
+      <div class="skillbar clearfix skill-name" data-percent="100%">
+        <h4 class="skillbar-title"><span>Python</span></h4>
+        <div class="skillbar-bar"></div>        
+      </div>
+
+      <div class="skillbar clearfix skill-name" data-percent="85%">
+        <h4 class="skillbar-title"><span>Deep learning</span></h4>
+        <div class="skillbar-bar"></div>  
+      </div>
+    </div>	
+    <h2 style="text-align: center;">Experience</h2>
     <div class="wrapper">
         <div class="center-line">
             <a href="#" class="scroll-icon"><i class="fas fa-caret-up"></i></a>
@@ -129,40 +336,40 @@ html{
             <section>
                 <i class="icon fas fa-home"></i>
                 <div class="details">
-                    <span class="title">Title of Section 1</span>
-                    <span>1st Jan 2021</span>
+                    <span class="title">ML Engineer @ Digitate</span>
+                    <span>2020 - 2022</span>
                 </div>
-                <p>Lorem ipsum dolor sit ameters consectetur adipisicing elit. Sed qui veroes praesentium maiores, sint eos vero sapiente voluptas debitis dicta dolore.</p>
+                <p>Developed a legal assistant to aid legal teams in real-time analysis of documented knowledge in legal instruments.</p>
             </section>
         </div>
         <div class="row row-2">
             <section>
             <i class="icon fas fa-star"></i>
             <div class="details">
-                <span class="title">Title of Section 2</span>
-                <span>2nd Jan 2021</span>
+                <span class="title">Systems Engineer @ Digitate</span>
+                <span>2019 - 2020</span>
             </div>
-            <p>Lorem ipsum dolor sit ameters consectetur adipisicing elit. Sed qui veroes praesentium maiores, sint eos vero sapiente voluptas debitis dicta dolore.</p>
+            <p>Engineered an AutoML pipeline for object detection tasks to generate custom fine-tuned models for a given dataset.</p>
             </section>
         </div>
         <div class="row row-1">
             <section>
             <i class="icon fas fa-rocket"></i>
             <div class="details">
-                <span class="title">Title of Section 3</span>
-                <span>3rd Jan 2021</span>
+                <span class="title">Assistant Engineer @ Digitate</span>
+                <span>2018 - 2019</span>
             </div>
-            <p>Lorem ipsum dolor sit ameters consectetur adipisicing elit. Sed qui veroes praesentium maiores, sint eos vero sapiente voluptas debitis dicta dolore.</p>
+            <p>Developed a computer vision pipeline to detect user interface input elements given a screenshot of a website or desktop application.</p>
             </section>
         </div>
         <div class="row row-2">
             <section>
             <i class="icon fas fa-globe"></i>
             <div class="details">
-                <span class="title">Title of Section 4</span>
-                <span>4th Jan 2021</span>
+                <span class="title">Vivekanand Institute of Tech</span>
+                <span>2014 - 2018</span>
             </div>
-            <p>Lorem ipsum dolor sit ameters consectetur adipisicing elit. Sed qui veroes praesentium maiores, sint eos vero sapiente voluptas debitis dicta dolore.</p>
+            <p>Completed Bachelor's of Engineering (B.E.) with specialization in Computer Engineering.</p>
             </section>
         </div>
         <!-- <div class="row row-1">
@@ -178,27 +385,13 @@ html{
                 <i>- Someone famous</i>
             </div>
             </section>
-        </div>
-        <div class="row row-2">
-            <section>
-            <i class="icon fas fa-map-marker-alt"></i>
-            <div class="details">
-                <span class="title">Title of Section 6</span>
-                <span>6th Jan 2021</span>
-            </div>
-            <p>Lorem ipsum dolor sit ameters consectetur adipisicing elit. Sed qui veroes praesentium maiores, sint eos vero sapiente voluptas debitis dicta dolore.</p>
-            <div class="bottom">
-                <a href="#" class="btn btn--primary">Read more</a>
-                <i>- Someone famous</i>
-            </div>
-            </section>
         </div> -->
     </div>
     <div class="feature__wrapper">
       <div class="feature__item--center">
         <div class="archive__item">
           <div class="archive__item-body">
-              <p><a href="/#test-link" class="btn btn--primary">Browse Resume</a></p>
+              <p><a href="/resume" class="btn btn--primary">Browse Resume</a></p>
           </div>
         </div>
       </div>

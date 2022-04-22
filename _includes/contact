@@ -30,19 +30,16 @@
 /* add appropriate colors to fb, twitter and google buttons */
 .fb {
   background-color: #3B5998;
-  color: white;
   width: 100%;
 }
 
 .twitter {
   background-color: #55ACEE;
-  color: white;
   width: 100%;
 }
 
 .google {
   background-color: #dd4b39;
-  color: white;
   width: 100%;
 }
 
@@ -66,7 +63,6 @@
 .vl {
   position: absolute;
   left: 50%;
-  transform: translate(-50%);
   border: 2px solid #ddd;
   height: 70%;
 }
@@ -114,9 +110,7 @@
 #fs-frm #card-element:disabled {
   font-family: inherit;
   font-size: 100%;
-  color: inherit;
   border: none;
-  border-radius: 0;
   display: block;
   width: 100%;
   padding: 0;
@@ -154,14 +148,14 @@
 
       <div class="col">
         <p style="text-align: justify;">Thank you for going through my portfolio. If you want to have a discussion, reach out to me on social media handles below. You may also fill in the contact form and I'll get back to you.</p>
-        <a href="#" class="fb btn" style="margin: 10px 0;">
-          <i class="fa fa-facebook fa-fw"></i> Facebook
+        <a href="https://www.linkedin.com/in/himanshurawlani/" class="fb btn" style="margin: 10px 0; color: white" target="_blank">
+          <i class="fa fa-linkedin fa-fw"></i> LinkedIn
         </a>
-        <a href="#" class="twitter btn" style="margin: 10px 0;">
+        <a href="https://twitter.com/raw_himanshu" class="twitter btn" style="margin: 10px 0; color: white" target="_blank">
           <i class="fa fa-twitter fa-fw"></i> Twitter
         </a>
-        <a href="#" class="google btn" style="margin: 15px 0;">
-          <i class="fa fa-google fa-fw"></i> Google+
+        <a href="https://www.instagram.com/himanshurawlanihr/" class="google btn" style="margin: 15px 0; color: white" target="_blank">
+          <i class="fa fa-instagram fa-fw"></i> Instagram
         </a>
       </div>
       <div class="col">
@@ -183,13 +177,13 @@
             </div>
             <div class="input-container">
               <i class="fa fa-commenting icon"></i>
-              <textarea class="input-field" rows="3" name="message" id="message" placeholder="Message description" required=""></textarea>
+              <textarea class="input-field" rows="4" name="message" id="message" placeholder="Message description" required=""></textarea>
             </div>
             <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
           </fieldset>
           <div class="input-container">
             <i class="fa fa-blank icon"></i>
-            <input style="color: gray" type="submit" value="Submit">
+            <input class="btn btn--primary" type="submit" value="Submit">
           </div>
       </div>
     </div>
