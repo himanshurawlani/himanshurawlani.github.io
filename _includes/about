@@ -57,9 +57,6 @@
 
 <style>
 /* Flex box*/
-html{
-  scroll-behavior: smooth;
-}
 .wrapper{
   max-width: 1080px;
   margin: 50px auto;
@@ -336,37 +333,47 @@ gcli + gcli {
             <section>
                 <i class="icon fas fa-home"></i>
                 <div class="details">
-                    <span class="title">ML Engineer @ Digitate</span>
+                    <span class="title">MSCS Student @ USC</span>
+                    <span>2022 - 2023</span>
+                </div>
+                <p>Currently pursuing Master of Science in Computer Science at the University of Southern California with Specialization in AI.</p>
+            </section>
+        </div>
+        <div class="row row-2">
+            <section>
+                <i class="icon fas fa-align-left"></i>
+                <div class="details">
+                    <span class="title">NLP Engineer @ Digitate</span>
                     <span>2020 - 2022</span>
                 </div>
                 <p>Developed a legal assistant to aid legal teams in real-time analysis of documented knowledge in legal instruments.</p>
             </section>
         </div>
-        <div class="row row-2">
+        <div class="row row-1">
             <section>
             <i class="icon fas fa-star"></i>
             <div class="details">
-                <span class="title">Systems Engineer @ Digitate</span>
+                <span class="title">ML Engineer @ Digitate</span>
                 <span>2019 - 2020</span>
             </div>
             <p>Engineered an AutoML pipeline for object detection tasks to generate custom fine-tuned models for a given dataset.</p>
             </section>
         </div>
-        <div class="row row-1">
+        <div class="row row-2">
             <section>
             <i class="icon fas fa-rocket"></i>
             <div class="details">
-                <span class="title">Assistant Engineer @ Digitate</span>
+                <span class="title">Systems Engineer @ Digitate</span>
                 <span>2018 - 2019</span>
             </div>
             <p>Developed a computer vision pipeline to detect user interface input elements given a screenshot of a website or desktop application.</p>
             </section>
         </div>
-        <div class="row row-2">
+        <div class="row row-1">
             <section>
             <i class="icon fas fa-globe"></i>
             <div class="details">
-                <span class="title">Vivekanand Institute of Tech</span>
+                <span class="title">VES Institute of Technology</span>
                 <span>2014 - 2018</span>
             </div>
             <p>Completed Bachelor's of Engineering (B.E.) with specialization in Computer Engineering.</p>
